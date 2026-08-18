@@ -13,8 +13,13 @@ def run_research_pipeline(topic : str)->dict:
     search_result=search_agent.invoke({
         "messages":[("user",f"Find recent, reliable and detailed information about:{topic} ")]
     })
+    print("\nRAW SEARCH RESULT:")
+    print(search_result)
 
-    state=["search_results"]=search_result['messages'][-1].content
+
+    state['search_results'] = search_result['messages'][-1].content
+    print("\nSEARCH RESULT:")
+    print(state['search_results'])
 
     print("\n search Result ",state['search_results'])
 
@@ -29,7 +34,7 @@ def run_research_pipeline(topic : str)->dict:
         "messages": [("user",
             f"Based on the following search results about '{topic}', "
             f"pick the most relevant URL and scrape it for deeper content.\n\n"
-            f"Search Results:\n{state['search_results'][:800]}"
+            f"Search Results:\n{state['search_results']}"
         )] 
     })
 
@@ -57,8 +62,31 @@ def run_research_pipeline(topic : str)->dict:
     print("\n Final Report \n",state['report'])
 
     #critic_report
-    
+    print("\n" + "="*50)
+    print("step 4 -critic is reviewing the report..... ")
+    print("="*50)
 
+
+    state['feedback']=critic_chain.invoke({ 
+        "report":state['report'],
+        }
+    )
+
+    print("\n critic report \n",state['feedback'])
+
+    return state
+
+
+
+if __name__=="__main__":
+    topic=input("\n Enter a research topic :")
+    run_research_pipeline(topic)
+
+
+
+
+
+ 
 
 
 

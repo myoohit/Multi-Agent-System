@@ -22,7 +22,7 @@ def web_search(query:str)->str:
         )
     return "\n-----\n".join(out)
 
-print(web_search.invoke("What are the recent news of America and Iran war?"))
+# print(web_search.invoke("What are the recent news of America and Iran war?"))
 
 
 
@@ -55,4 +55,4 @@ def scrape_url(url: str) -> str:
         return f"Could not scrape URL: {str(e)}"
 
 
-print(scrape_url.invoke("https://www.hindustantimes.com/india-news/where-is-he-aap-kejriwal-claims-delhi-police-picked-its-mla-kuldeep-kumar-delhi-hc-agrees-for-urgent-hearing-101787046179844.html"))
+# print(scrape_url.invoke("https://www.hindustantimes.com/india-news/where-is-he-aap-kejriwal-claims-delhi-police-picked-its-mla-kuldeep-kumar-delhi-hc-agrees-for-urgent-hearing-101787046179844.html"))
