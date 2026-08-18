@@ -1,5 +1,6 @@
 groq
 langchain
+langchain-groq
 tavily-python
 beautifulsoup4
 requests
