@@ -1,0 +1,10 @@
+groq
+tavily-python
+beautifulsoup4
+requests
+lxml
+pydantic
+python-dotenv
+httpx
+tenacity
+rich
