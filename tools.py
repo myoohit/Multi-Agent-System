@@ -20,6 +20,6 @@ def web_search(query:str)->str:
         out.append(
             f"Title:{r["title"]}\nURL:{r['url']}\nSnippet:{r['content'][:300]}\n"
         )
-        return "\n-----\n".join(out)
+    return "\n-----\n".join(out)
 
-print(web_search.invoke("What is the current news in Indian Stock market?"))
+print(web_search.invoke("What are the recent news of America and Iran war?"))
