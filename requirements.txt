@@ -12,6 +12,5 @@ tenacity
 rich
 fastapi
 uvicorn
-react-markdown
 xhtml2pdf
 markdown
