@@ -16,7 +16,7 @@ app = FastAPI()
 # requests unless we explicitly allow it.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # tighten this to your actual Vercel URL once deployed
+    allow_origins=["https://multi-agent-system-alpha.vercel.app"],  # tighten this to your actual Vercel URL once deployed
     allow_methods=["*"],
     allow_headers=["*"],
 )
