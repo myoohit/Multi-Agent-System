@@ -12,3 +12,4 @@ tenacity
 rich
 fastapi
 uvicorn
+react-markdown
