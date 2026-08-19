@@ -61,7 +61,7 @@ export default function App() {
     <div>
       <Hero topic={topic} setTopic={setTopic} onRun={runPipeline} isRunning={isRunning} />
       <PipelineDiagram steps={steps} />
-      <OutputPanel steps={steps} />
+      <OutputPanel steps={steps} topic={topic} />
       <InfoSection />
       <Footer />
     </div>
