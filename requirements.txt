@@ -10,3 +10,5 @@ python-dotenv
 httpx
 tenacity
 rich
+fastapi
+uvicorn

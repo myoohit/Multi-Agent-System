@@ -1,0 +1,66 @@
+/* ---- Design tokens ---- */
+/* Keeping every color/spacing decision in one place so the rest of the
+   app never hardcodes a hex value directly. */
+:root {
+  --bg: #0A0D12;
+  --bg-elevated: #12161F;
+  --border: #232838;
+
+  --text: #EDEEF2;
+  --text-dim: #8B92A5;
+
+  --accent-violet: #8C7CFF;
+  --accent-amber: #FFB454;
+  --accent-cyan: #5EEAD4;
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Visible keyboard focus everywhere — accessibility floor, not optional */
+:focus-visible {
+  outline: 2px solid var(--accent-violet);
+  outline-offset: 2px;
+}
+
+/* Respect users who've asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- Shared utility classes ---- */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Pulsing dot used for the "running" state — the one deliberate
+   animation flourish, used consistently rather than scattered everywhere */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-amber);
+  animation: pulse 1.2s ease-in-out infinite;
+}
