@@ -11,12 +11,11 @@ load_dotenv()
 
 #model setup
 llm = ChatGroq(
-    model="qwen/qwen3.6-27b",
+    model="qwen/qwen3.6-27b",   # dot between 3 and 6 — this is correct
     temperature=0,
     reasoning_effort="none",
     max_retries=5  # auto-retries on rate limits instead of crashing
 )
-
 
 # 1st agent - always searches the web, never answers from its own memory
 def build_search_agent():
