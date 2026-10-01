@@ -11,10 +11,11 @@ load_dotenv()
 
 #model setup
 llm = ChatGroq(
-    model="qwen/qwen3.6-27b",   # dot between 3 and 6 — this is correct
+    model="openai/gpt-oss-20b",
     temperature=0,
-    reasoning_effort="none",
-    max_retries=5  # auto-retries on rate limits instead of crashing
+    reasoning_effort="low",
+    max_retries=5,  # temporary, so errors show up
+    
 )
 
 # 1st agent - always searches the web, never answers from its own memory
@@ -54,13 +55,14 @@ Research Gathered:
 
 Structure the report as:
 - Introduction
-- Key Findings (minimum 3 well-explained points)
+- Key Findings (minimum 3 findings, as a numbered list)
 - Conclusion
 - Sources (list all URLs found in the research)
 
 Rules:
 - Use specific numbers, percentages, and dates from the research wherever available.
 - When you state a claim, mention which source it came from.
+- Do NOT use tables anywhere in the report. Write Key Findings as a numbered list. Each item starts with a bold title, then 1-3 sentences of explanation, then the source and date in parentheses, e.g. (Source: Reuters, 30 Sep 2026).
 - IMPORTANT: The research may contain results from DIFFERENT policy events/dates (e.g. one article about a rate cut, another about a rate hold on a different date). Do not blend numbers or claims from different events into a single narrative. If sources describe different dates/events, treat them separately and say so clearly.
 - If the exact quarter/period asked about doesn't match what's in the sources (e.g. sources cover Q3 but the topic asks about Q4), say so explicitly instead of silently relabeling the data.
 - Be detailed, factual and professional."""),

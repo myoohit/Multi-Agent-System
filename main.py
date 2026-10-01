@@ -35,7 +35,10 @@ def download_pdf(payload: dict = Body(...)):
 # requests unless we explicitly allow it.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://research-agent-pipeline.vercel.app"],  # tighten this to your actual Vercel URL once deployed
+    allow_origins=[
+        "http://localhost:5173",
+        "https://research-agent-pipeline.vercel.app",
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
