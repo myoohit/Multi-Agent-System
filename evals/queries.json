@@ -1,0 +1,22 @@
+[
+  {"id": 1, "category": "easy", "topic": "How do vaccines train the immune system?"},
+  {"id": 2, "category": "easy", "topic": "What causes the seasons on Earth?"},
+  {"id": 3, "category": "easy", "topic": "How does a blockchain work?"},
+  {"id": 4, "category": "easy", "topic": "What is the difference between TCP and UDP?"},
+  {"id": 5, "category": "easy", "topic": "How do solar panels generate electricity?"},
+  {"id": 6, "category": "ambiguous", "topic": "Is AI dangerous?"},
+  {"id": 7, "category": "ambiguous", "topic": "Python vs JavaScript"},
+  {"id": 8, "category": "ambiguous", "topic": "Effects of social media"},
+  {"id": 9, "category": "ambiguous", "topic": "Future of work"},
+  {"id": 10, "category": "ambiguous", "topic": "Best programming language to learn"},
+  {"id": 11, "category": "niche", "topic": "Kubernetes pod disruption budgets explained"},
+  {"id": 12, "category": "niche", "topic": "How do carrier allocation algorithms work in e-commerce logistics?"},
+  {"id": 13, "category": "niche", "topic": "Retrieval-augmented generation chunking strategies"},
+  {"id": 14, "category": "niche", "topic": "Server-Sent Events vs WebSockets for LLM streaming"},
+  {"id": 15, "category": "niche", "topic": "Causes of RTO (return to origin) in Indian e-commerce"},
+  {"id": 16, "category": "recent", "topic": "Latest developments in AI agents this month"},
+  {"id": 17, "category": "recent", "topic": "Recent changes in India's e-commerce regulations"},
+  {"id": 18, "category": "recent", "topic": "Newest open-weight LLM releases"},
+  {"id": 19, "category": "recent", "topic": "Latest breakthroughs in battery technology"},
+  {"id": 20, "category": "recent", "topic": "Current state of the Indian startup funding market"}
+]
