@@ -198,6 +198,7 @@ Results (every report, every score, plus a summary) are saved to `evals/results/
 | **PDF generation** | xhtml2pdf, Python-Markdown |
 | **Frontend** | React, Vite |
 | **Evaluation** | LLM-as-judge (Groq, gpt-oss-120b), custom Python harness |
+| **Containerization** | Docker (backend image), Docker Compose |
 | **Deployment** | Render (backend) · Vercel (frontend) |
 
 ---
@@ -214,6 +215,9 @@ Multi-Agent-System/
 ├── debug_search.py           # Standalone script for testing search/scrape tools in isolation
 ├── main.py                   # FastAPI app: /research (SSE) + /download-pdf
 ├── run_evals.py              # Eval harness: runs the pipeline on a query set and scores it
+├── Dockerfile                # Container image for the FastAPI backend
+├── docker-compose.yml        # One-command local run of the backend container
+├── .dockerignore             # Keeps secrets, .venv and the frontend out of the image
 ├── requirements.txt
 │
 ├── evals/
@@ -268,6 +272,35 @@ npm run dev
 ```
 
 Open `http://localhost:5173`, type a topic, hit Run.
+
+---
+
+## Running the backend with Docker
+
+The backend ships with a Dockerfile, so you can run it without installing Python or a virtual environment — just Docker.
+
+```bash
+# build the image (from the repo root)
+docker build -t research-agent-backend .
+
+# run it, passing API keys from your .env at runtime
+docker run --rm -p 8000:8000 --env-file .env research-agent-backend
+```
+
+Or, with Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+Then open `http://localhost:8000/docs` to check the API is up, and run the frontend as described above with `VITE_API_URL=http://localhost:8000`.
+
+A few notes:
+
+- **Secrets stay out of the image.** `.dockerignore` excludes `.env`; the keys are passed in at runtime with `--env-file`.
+- **No quotes in `.env` when using Docker.** `--env-file` passes quote characters through literally, so write `GROQ_API_KEY=abc123`, not `GROQ_API_KEY="abc123"`.
+- **Port.** The container listens on `$PORT` if it's set, otherwise on 8000.
+- **Backend only.** The frontend is built and deployed separately on Vercel, so it isn't part of the image.
 
 ---
 
