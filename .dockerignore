@@ -1,0 +1,19 @@
+# Environments and caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Secrets: never copy into the image
+.env
+.env.*
+
+# Frontend is deployed separately on Vercel
+frontend/
+node_modules/
+
+# Not needed at runtime
+.git/
+.gitignore
+evals/results/
+*.md
